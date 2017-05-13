@@ -1,0 +1,148 @@
+---
+layout: default
+title: MyWork
+permalink: /mywork/
+---
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'All')" width="500px">All</button>
+  <button class="tablinks" onclick="openCity(event, 'Ongoing')" width="300px">Ongoing</button>
+  <button class="tablinks" onclick="openCity(event, 'Completed')" width="300px">Completed</button>
+</div>
+
+<div id="All" class="tabcontent">
+    <div class="posts">
+      {% for post in site.posts %}
+      {% if post.viewable %}
+      <div class="post">
+          <table width=100%>
+              <tr>
+                  <td>
+                      <h1 class="post-title">
+                        <a href="{{ site.url }}/{{ post.url }}">
+                          {{ post.title }}
+                        </a>
+                      </h1>
+                  </td>
+
+                  <td width="120" height="120">
+                      <img src="{{post.image | prepend: site.url}}" alt="post title" align="right"/>
+                  </td>
+              </tr>
+          </table>
+
+        <span class="post-date">Length: {{post.length}}</span>
+        <span class="post-date">Duration: {{post.duration}}</span>
+        <span class="post-date">Languages/Tools: {{post.languages}}</span>
+        {{ post.excerpt}}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+</div>
+
+<div id="Ongoing" class="tabcontent">
+    <div class="posts">
+      {% for post in site.posts %}
+      {% if post.viewable %}
+      {% if post.ongoing %}
+      <div class="post">
+          <table width=100%>
+              <tr>
+                  <td>
+                      <h1 class="post-title">
+                        <a href="{{ site.url }}/{{ post.url }}">
+                          {{ post.title }}
+                        </a>
+                      </h1>
+                  </td>
+
+                  <td width="120" height="120">
+                      <img src="{{post.image | prepend: site.url}}" alt="post title" align="right"/>
+                  </td>
+              </tr>
+          </table>
+
+        <span class="post-date">Length: {{post.length}}</span>
+        <span class="post-date">Duration: {{post.duration}}</span>
+        <span class="post-date">Languages/Tools: {{post.languages}}</span>
+        {{ post.excerpt}}
+      </div>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+    </div>
+</div>
+
+<div id="Completed" class="tabcontent">
+    <div class="posts">
+      {% for post in site.posts %}
+      {% if post.viewable %}
+      {% unless post.ongoing %}
+      <div class="post">
+          <table width=100%>
+              <tr>
+                  <td>
+                      <h1 class="post-title">
+                        <a href="{{ site.url }}/{{ post.url }}">
+                          {{ post.title }}
+                        </a>
+                      </h1>
+                  </td>
+
+                  <td width="120" height="120">
+                      <img src="{{post.image | prepend: site.url}}" alt="post title" align="right"/>
+                  </td>
+              </tr>
+          </table>
+
+        <span class="post-date">Length: {{post.length}}</span>
+        <span class="post-date">Duration: {{post.duration}}</span>
+        <span class="post-date">Languages/Tools: {{post.languages}}</span>
+        {{ post.excerpt}}
+      </div>
+      {% endunless %}
+      {% endif %}
+      {% endfor %}
+    </div>
+</div>
+
+<!--
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.url }}/page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.url }}/">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.url }}/page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>
+-->
+
+<script>
+document.getElementsByClassName('tablinks')[0].click();
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+<link rel="stylesheet" href="{{site.url}}/public/css/blog.css"/>
+<link rel="stylesheet" href="{{site.url}}/public/css/lanyon.css"/>
