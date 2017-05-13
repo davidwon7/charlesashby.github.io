@@ -82,5 +82,5 @@ pressure from the professor and coursework.
   <span class="dot" onclick="currentSlide(4)"></span>
 </div>
 
-<link rel="stylesheet" href="{{site.url}}/public/css/private.css"/>
-<script type="text/javascript" src="{{site.url}}/public/js/slide.js"/>
+<link rel="stylesheet" href="/public/css/private.css"/>
+<script type="text/javascript" src="/public/js/slide.js"/>
