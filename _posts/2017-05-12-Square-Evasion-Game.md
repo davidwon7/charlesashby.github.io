@@ -35,5 +35,5 @@ my mobile phone
 
 You can get the game here!
 <a href="https://play.google.com/store/apps/details?id=com.SimpleGames.Evasion">
-    <img src="{{site.url}}/assets/google-play-badge.png/" width="250">
+    <img src="/assets/google-play-badge.png/" width="250">
 </a>
