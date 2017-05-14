@@ -31,15 +31,47 @@
     <span class="sidebar-nav-item">Currently v{{ site.version }}</span>-->
   </nav>
 
-  <div class="sidebar-item">
-    <p>
-      &copy; {{ site.time | date: '%Y' }}. All rights reserved.
-    </p>
-  </div>
+
 <!--
   <div class="sidebar-item">
   <a href="github.com/davidwon7">Github</a>
 
   </div>
 -->
+<div id="contact-list" class="contact-box2">
+<!-- contact icons go here -->
+<ul class="contact-sidebar">
+<ul>
+{% if site.author.github %}
+
+  <a href="https://github.com/{{ site.author.github }}">
+    <i class="fa fa-github"></i> Github
+  </a>
+
+{% endif %}
+</ul>
+<ul>
+{% if site.author.facebook %}
+    <a href="https://facebook.com/{{ site.author.facebook }}">
+      <i class="fa fa-facebook"></i> Facebook
+    </a>
+{% endif %}
+</ul>
+<ul>
+{% if site.author.linkedin %}
+    <a href="https://linkedin.com/{{ site.author.linkedin }}">
+      <i class="fa fa-linkedin"></i> LinkedIn
+    </a>
+{% endif %}
+</ul>
+</ul>
+</div>
+
+
+<div class="sidebar-item">
+  <p>
+    &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+  </p>
+</div>
+
 </div>

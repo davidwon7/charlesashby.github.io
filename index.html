@@ -17,9 +17,26 @@ can view <a href="{{ site.baseurl }}/CV">my CV here</a> if you are interested in
 hiring or working with me.
 </h3>
 
-<div class="link">
-    <a href="https://github.com/davidwon7">
-        <img src="/assets/google-play-badge.png" >
-        Github
+
+<div id="contact-list" class="contact-box">
+<!-- contact icons go here -->
+{% if site.author.github %}
+
+  <a href="https://github.com/{{ site.author.github }}">
+    <i class="fa fa-github"></i> Github
+  </a>
+
+{% endif %}
+
+{% if site.author.facebook %}
+    <a href="https://facebook.com/{{ site.author.facebook }}">
+      <i class="fa fa-facebook"></i> Facebook
     </a>
+{% endif %}
+
+{% if site.author.linkedin %}
+    <a href="https://linkedin.com/{{ site.author.linkedin }}">
+      <i class="fa fa-linkedin"></i> LinkedIn
+    </a>
+{% endif %}
 </div>
